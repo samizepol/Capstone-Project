@@ -4,7 +4,8 @@ Analysis of climate projections for Paraguay (datos.gov.py, 2006-2099).
 Models: HadGEM2-ES, MIROC5, BESM, CanESM2. Scenarios: RCP4.5, RCP8.5.
 
 ## Stage 1 (December)
-Rainfall change by region (Chaco vs Oriental) by mid- and end-century,
+Rainfall change by region (Chaco vs Oriental) for the mid (2027-2063) and
+end (2064-2099) terms, relative to the 1976-2005 baseline,
 with model agreement. Models are shown separately (no ensemble).
 
 ## Structure
