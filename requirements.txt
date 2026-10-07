@@ -1,0 +1,11 @@
+pandas
+numpy
+pyarrow
+duckdb
+geopandas
+pymannkendall
+matplotlib
+plotly
+streamlit
+jupyter
+ipykernel
