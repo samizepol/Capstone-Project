@@ -23,3 +23,8 @@ pip install -r requirements.txt
 
 ## Data
 Download from datos.gov.py into `data/raw/` (not tracked by git).
+
+## Boundaries (Step 3)
+Department boundaries come from geoBoundaries (Paraguay ADM1, not tracked by git). Download:
+`Invoke-WebRequest "https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/main/releaseData/gbOpen/PRY/ADM1/geoBoundaries-PRY-ADM1.geojson" -OutFile data/external/departamentos/PRY_ADM1.geojson`
+Then: `python -m src.assign_regions` and `python -m src.plot_region_map`.

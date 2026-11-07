@@ -84,3 +84,12 @@ Defined in `src/config.py`:
 - HadGEM2-ES RCP45 is missing 2099-12. Should we download it again, end the "end" term (2064–2099) at 2099-11 for every model, or accept 11 months in that model's final year?
 - The eastern region looks dry: about 1,050 mm/yr in the BESM historical run versus roughly 1,500+ mm/yr observed. Should we bias-correct, or rely only on relative change (future vs 1976–2005 baseline)?
 - The data portal's metadata does not state the unit. Can mm/month be confirmed from the portal documentation?
+
+## Step 3: regions (`python -m src.assign_regions`)
+
+- Boundaries: geoBoundaries gbOpen, Paraguay ADM1 (18 departments), saved as `data/external/departamentos/PRY_ADM1.geojson` (not in git). Source: https://www.geoboundaries.org
+- Names in the file are uppercase without accents (`BOQUERON`, `ÑEEMBUCU`); `assign_regions.py` normalizes names, so `CHACO_DEPARTMENTS` in `src/config.py` keeps its accents.
+- Output `data/processed/grid_regions.parquet`: lat, lon, department, region, weight = cos(lat), assigned_by, dist_km. Join to the climate Parquet on lat/lon (both rounded to 3 decimals): all 9,863,406 rows match.
+- **Chaco = 528 cells** (Alto Paraguay 168, Boquerón 195, Presidente Hayes 165); **Oriental = 354 cells**. Asunción has 0 cells (too small for the 0.2° grid).
+- Cells outside every polygon: **0**, so no cell needed nearest-department assignment.
+- Check: `outputs/figures/region_map.png`. Baseline (1976-2005) annual rainfall, cos(lat)-weighted: Chaco 536-614 mm/yr, Oriental 951-1,240 mm/yr across the 4 models, as expected (drier west).

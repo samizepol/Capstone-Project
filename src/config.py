@@ -49,3 +49,9 @@ SEASONS = {
     "JJA": [6, 7, 8],
     "SON": [9, 10, 11],
 }
+
+# Region assignment (Step 3). Boundaries: geoBoundaries gbOpen PRY ADM1 (see README)
+CHACO_LABEL = "Chaco"
+ORIENTAL_LABEL = "Oriental"
+DEPARTMENTS_FILE = DATA_EXTERNAL / "departamentos" / "PRY_ADM1.geojson"
+DEPARTMENT_NAME_FIELD = "shapeName"   # column of DEPARTMENTS_FILE with the department name
